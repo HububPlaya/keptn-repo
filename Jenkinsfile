@@ -4,17 +4,19 @@ pipeline {
     stages {
         stage('Check kubectl version') {
             steps {
-                script {
-                    sh 'kubectl version --client'
-                }
+                // Use PowerShell to check kubectl version
+                powershell '''
+                    kubectl version --client
+                '''
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                script {
-                    sh 'kubectl apply -f app.yaml'  // Ensure the file name matches
-                }
+                // Use PowerShell to deploy the Kubernetes manifest
+                powershell '''
+                    kubectl apply -f app.yaml  // Ensure the file name matches
+                '''
             }
         }
     }
