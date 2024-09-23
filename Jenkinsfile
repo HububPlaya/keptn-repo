@@ -15,7 +15,7 @@ pipeline {
             steps {
                 // Use PowerShell to deploy the Kubernetes manifest
                 powershell '''
-                    kubectl apply -f app.yaml  // Ensure the file name matches
+                    kubectl apply -f app.yaml  # Ensure the file name matches
                 '''
             }
         }
